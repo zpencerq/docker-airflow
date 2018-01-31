@@ -41,6 +41,9 @@ RUN set -ex \
         freetds-bin \
         build-essential \
         default-libmysqlclient-dev \
+        ssh \
+        python3-pip \
+        python3-requests \
         apt-utils \
         curl \
         rsync \
