@@ -33,7 +33,6 @@ RUN set -ex \
         libssl-dev \
         libffi-dev \
         libpq-dev \
-        git \
     ' \
     && apt-get update -yqq \
     && apt-get upgrade -yqq \
@@ -47,6 +46,9 @@ RUN set -ex \
         rsync \
         netcat \
         locales \
+    && echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> /etc/apt/sources.list \
+    && apt-get update -yqq \
+    && apt-get install -yqq git \
     && sed -i 's/^# en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/g' /etc/locale.gen \
     && locale-gen \
     && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
